@@ -1,0 +1,52 @@
+@CHARSET "UTF-8";
+
+.ehe_radio{
+	position:relative;
+	top:3px;
+}
+
+/* 全局 */
+.fm{ /* 主菜单 */
+	position:absolute;
+	color:white;
+	cursor:default;
+	display:none;
+	z-index:1500;
+}
+.fm_children{ /* 子菜单 */
+	font-size:13px;
+	padding:5px;
+	background-color:rgb(80,80,80);
+	border-radius:2px;
+	margin-right:2px;
+}
+.fm_children_clickable{
+	font-size:13px;
+	padding:5px;
+	background-color:rgb(80,80,80);
+	border-radius:2px;
+	margin-right:2px;
+}
+.fm_children_clickable:hover{
+	cursor:pointer;
+	background-color:rgb(0,120,215) !important;
+}
+.fm_button{ /* 按钮 */
+	color:white;
+	margin-right:3px;
+	height:23px;
+	padding:0px 7px;
+	border-radius:2px;
+	background-color:transparent !important;
+}
+.fm_button:hover{
+	cursor:pointer;
+	background-color:rgb(0,120,215) !important;
+}
+
+
+/* pre menu */
+#pre_code_color_menu_choose{
+	position:absolute;
+	line-height:200%;
+}

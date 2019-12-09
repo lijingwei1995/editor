@@ -1,0 +1,290 @@
+@CHARSET "UTF-8";
+/* 全局样式 */
+.fw{
+	position:fixed;
+	border:solid 5px rgb(80,80,80);
+	border-radius:5px;
+	box-shadow:0px 0px 2px black;
+	z-index:1500;
+	color:white;
+	display:none;
+}
+
+.fw_title{
+	font-size:13px;
+	padding:0px 5px 5px 7px;
+	height:25px;
+	line-height:25px;
+	color:white;
+	background-color:rgb(80,80,80);
+	cursor:default;
+	
+	/* 由于容易选中，这里禁止 */
+	-moz-user-select: 	none;
+    -webkit-user-select:none;
+    -ms-user-select: 	none;
+    -khtml-user-select: none;
+    user-select: 		none;
+}
+
+.fw_title_hint1,.fw_title_hint2{
+	display:none;
+}
+
+.fw[data-state='active']{
+	border-color:rgb(0,120,215);
+}
+
+.fw[data-state='active'] .fw_title{
+	background-color:rgb(0,120,215);
+}
+
+.fw[data-state='forbid'] .fw_title_hint1{
+	display:inline;
+}
+
+.fw[data-state='active'] .fw_title_hint2{
+	display:inline;
+}
+
+.fw_content{
+	padding:10px;
+	background-color:rgb(40,40,40);
+	position:relative;
+}
+
+.fw_forbid_mask{
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0px;
+	left:0px;
+	background-color:black;
+	opacity:0.6;
+	display:none;
+}
+
+.fw[data-state='forbid'] .fw_forbid_mask{
+	display:inline;
+}
+
+.fw_close_button{
+	width:25px;
+	height:25px;
+	float:right;
+	border-radius:2px;
+	outline:none;
+	background-size:100%;
+	
+	background-color:transparent !important;
+	background-image:url("../icon/window/close.png");
+}
+
+.fw_close_button:hover{
+	background-color:red !important;
+}
+/* 按钮 */
+.fw_button{
+	border-radius:3px;
+	height:25px;
+	width:60px;
+	color:white;
+	margin-left:5px;
+	text-align:center;
+	background-color:rgb(0,120,215) !important;
+	float:left;
+}
+.fw_button:hover{
+	background-color:rgb(53,165,255) !important;
+}
+
+/* 输入框等 */
+.fw_input_wrapper{
+	margin-bottom:4px;
+}
+.fw_input_hint{
+	font-size:14px;
+	line-height:19px;
+	height:19px;
+	float:left;
+}
+.fw_input{
+	/*color:rgb(100,100,100);*/
+	color:white;
+	background-color:black;
+	width:300px;
+	height:19px;
+	padding:5px 5px 5px 10px;
+	border:solid 1px rgb(147,147,147);
+}
+.fw_input:hover{
+	border:solid 1px rgb(126,180,234);
+}
+
+/* 定制样式 */
+
+/* 图片窗口 */
+#picture_window{
+	/* 需要设置宽度 */
+	width:426px;
+	right:20px;
+}
+
+#eiu_left{
+	width:94px;
+	height:94px;
+	line-height:94px;
+	float:left;
+	border:solid 1px rgb(126,180,234);
+	background-color:rgb(60,60,60);
+	text-align:center;
+}
+#eiu_img{
+	width:auto;
+	height:auto;
+	max-width:100%;
+	max-height:100%;
+	vertical-align:middle;
+}
+#eiu_right{
+	margin-left:10px;
+	float:left;
+}
+#eiu_input_row{
+	height:25px;
+}
+#eiu_input{
+	width:300px;
+}
+#eiu_hint1,#eiu_hint2{
+	font-size:13px;
+	line-height:23px;
+}
+
+/* 链接窗口 */
+#link_window{
+	/* 需要设置宽度 */
+	width:403px;
+	right:20px;
+}
+#fw_inesrt_link{
+	height:61px;
+	width:61px;
+}
+
+/* 公式窗口 */
+#math_window{
+	/* 需要设置宽度 */
+	width:434px;
+	right:20px;
+}
+
+#math_content{
+	font-size:15px;
+	margin-top:10px;
+	color:white;
+	background-color:black;
+	width:397px;
+	padding:5px 5px 5px 10px;
+	border:solid 1px rgb(147,147,147);
+	resize:vertical;
+}
+
+#math_preview{
+	color:black;
+	margin-top:10px;
+	min-height:50px;
+	background-color:white;
+	border:solid 1px rgb(147,147,147);
+	position:relative;
+	overflow-x:auto;
+}
+
+#math_preview_mask{
+	position:absolute;
+	top:0px;
+	width:100%;
+	height:100%;
+}
+
+/* 模态框 */
+.mw_wrapper{
+	position:fixed;
+	width:100%;
+	height:100%;
+	z-index:1701;
+	display:none;
+}
+
+.mw{
+	width:80%;
+	height:80%;
+	margin:0 auto;
+	border:solid 5px rgb(80,80,80);
+	border-radius:5px;
+	box-shadow:0px 0px 2px black;
+	z-index:1500;
+	background-color:white;
+}
+
+.mw_title{
+	font-size:13px;
+	padding:0px 5px 5px 7px;
+	height:25px;
+	line-height:25px;
+	color:white;
+	background-color:rgb(80,80,80);
+	cursor:default;
+	
+	/* 由于容易选中，这里禁止 */
+	-moz-user-select: 	none;
+    -webkit-user-select:none;
+    -ms-user-select: 	none;
+    -khtml-user-select: none;
+    user-select: 		none;
+}
+
+.mw_content{
+	height:95%;
+	padding:10px;
+	resize:none;
+}
+
+#mw_code_content{
+	font-family: Menlo,Monaco,Consolas,"Andale Mono","lucida console","等线","Courier New",monospace;
+	font-size:15px;
+	line-height:140%;
+	width:100%;
+	height:95%;
+	border:none;
+}
+
+.mw_title_button{
+	border-radius:3px;
+	height:25px;
+	width:60px;
+	color:white;
+	margin-left:5px;
+	text-align:center;
+	background-color:rgb(0,120,215) !important;
+	float:right;
+}
+.mw_title_button:hover{
+	background-color:rgb(53,165,255) !important;
+}
+
+.mw_close_button:hover{
+	background-color:red !important;
+}
+
+#mw_mask{
+	position:fixed;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	background-color:BLACK;
+	opacity:0.2;
+	z-index:1700;
+	display:none;
+}
