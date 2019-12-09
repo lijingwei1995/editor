@@ -20,28 +20,28 @@
 <link href="highlightjs/styles/vs.css" rel="stylesheet" type="text/css" />
 
 <!-- 脚本 -->
-<script src="effity_HTML_editor/js/ehe_before_processing.js"></script>
-<script src="effity_HTML_editor/js/ehe_filter.js"></script>
-<script src="effity_HTML_editor/js/float_window.js"></script>
-<script src="effity_HTML_editor/js/effity_HTML_editor.js"></script>
-<script src="effity_HTML_editor/js/ehe_after_processing.js"></script>
+<script src="js/ehe_before_processing.js"></script>
+<script src="js/ehe_filter.js"></script>
+<script src="js/float_window.js"></script>
+<script src="js/effity_HTML_editor.js"></script>
+<script src="js/ehe_after_processing.js"></script>
 
-<script src="effity_HTML_editor/js/ehe_font_style.js"></script>
-<script src="effity_HTML_editor/js/ehe_link.js"></script>
-<script src="effity_HTML_editor/js/ehe_image.js"></script>
-<script src="effity_HTML_editor/js/ehe_ul.js"></script>
-<script src="effity_HTML_editor/js/ehe_ol.js"></script>
-<script src="effity_HTML_editor/js/ehe_blockquote.js"></script>
-<script src="effity_HTML_editor/js/ehe_code.js"></script>
-<script src="effity_HTML_editor/js/ehe_inner_code.js"></script>
-<script src="effity_HTML_editor/js/ehe_heading.js"></script>
-<script src="effity_HTML_editor/js/ehe_math.js"></script>
+<script src="js/ehe_font_style.js"></script>
+<script src="js/ehe_link.js"></script>
+<script src="js/ehe_image.js"></script>
+<script src="js/ehe_ul.js"></script>
+<script src="js/ehe_ol.js"></script>
+<script src="js/ehe_blockquote.js"></script>
+<script src="js/ehe_code.js"></script>
+<script src="js/ehe_inner_code.js"></script>
+<script src="js/ehe_heading.js"></script>
+<script src="js/ehe_math.js"></script>
 
 <!-- 样式 -->
 <link href="css/ehe_float_menu.css" rel="stylesheet" type="text/css" />
 <link href="css/ehe_float_window.css" rel="stylesheet" type="text/css" />
-<link href="css/effity_HTML_editor.css" rel="stylesheet" type="text/css" />
-<link href="css/article/article_chapter_content.css" rel="stylesheet" type="text/css" />
+<link href="css/effity_HTML_editor_simple.css" rel="stylesheet" type="text/css" />
+
 
 </head>
 
@@ -221,87 +221,60 @@ function reset_effity_HTML_editor_height() {
 <!-- 模态框遮罩 -->
 <div id="mw_mask"></div>
 
-<!-- 主体，命名空间为ehe -->
-<div id="ehe_wrapper">
-  <div id="ehe">
-    <div id="ehe_header">
+<!-- 编辑器窗口 -->
+<div id="richtext_window">
 
-    </div>
-    <div id="ehe_left">
-       <!-- 主菜单 -->
-      <div id="ehe_menu">
-        <input type="button" class="ehe_menu_button" id="bold_button"           clicked="false"  title="加粗">
-        <input type="button" class="ehe_menu_button" id="italic_button"         clicked="false"  title="斜体">
-        <div class="ehe_menu_separator"></div>
-        <input type="button" class="ehe_menu_button" id="link_button"           clicked="false"  title="插入链接">
-        <input type="button" class="ehe_menu_button" id="blockquote_button"     clicked="false"  title="插入引用">
-        <input type="button" class="ehe_menu_button" id="picture_button"        clicked="false"  title="插入图片">
-        <!--<input type="button" class="ehe_menu_button" id="video_button"          clicked="false"  title="插入视频"> -->
-        <div class="ehe_menu_separator"></div>
-        <input type="button" class="ehe_menu_button" id="h1_button"             clicked="false"  title="插入一级标题">
-        <input type="button" class="ehe_menu_button" id="h2_button"             clicked="false"  title="插入二级标题">
-        <input type="button" class="ehe_menu_button" id="ul_button"             clicked="false"  title="插入无序列表">
-        <input type="button" class="ehe_menu_button" id="ol_button"             clicked="false"  title="插入有序列表">
-        <div class="ehe_menu_separator"></div>
-        <input type="button" class="ehe_menu_button" id="math_button"           clicked="false"  title="插入公式">
-        <input type="button" class="ehe_menu_button" id="code_button"           clicked="false"  title="插入代码框">
-        <input type="button" class="ehe_menu_button" id="inner_code_button"     clicked="false"  title="变成行内代码：选中一个单词后点击此按钮">
-        <!-- 
-        <div class="ehe_menu_separator"></div>
-        <input type="button" class="ehe_menu_button" id="clear_format_button"   clicked="false"  title="清除格式">
-         -->
-        <div class="clearfloat"></div>
-      </div>
-      
-      <div id="editor_top"></div>
-      
-      <!-- 编辑器主div -->
-      <div id="ehe_main_wrapper">
-        <div id="ehe_main" contentEditable="true" onpaste="ehe_paste($(this))" spellcheck="false"><#$newest_content_info.content#></div>
-        <div id="ehe_main_placeholder"></div>
-      </div>
-      
-      <!-- 底部位置标记 -->
-      <div id="editor_bottom"></div>
-    </div>
-    <div id="ehe_right">
-    
-      <!-- 右侧页面导航栏 -->
-      <div id="ehe_right_menu">
-        <span class="ehe_right_tag" id="ehe_help_tag" clicked="true">说明与帮助</span>
-        <span class="ehe_right_tag" id="ehe_advance_tag" clicked="false">高级</span>
-      </div>
-
-      <!-- 结构编辑器 -->
-      <div id="ehe_construct">
-
-      </div>
-      
-      <!-- 结构标签模板（上个div的子元素） -->
-      <div id="struct_tag_template" style="display:none">
-        <div class="struct_tag" for="">
-          <div class="struct_tag_name"></div>
-          <div class="struct_tag_children"></div>
-        </div>
-      </div>
-      
-    </div>
+  <!-- 顶部按钮 -->
+  <div id="richtext_window_menu">
+    <span id="richtext_window_hint"></span>
+    <input type="button" class="window_title_button_cancel" id="richtext_window_cancel" value="取消">
+    <input type="button" class="window_title_button" id="richtext_window_submit" value="发布">
     <div class="clearfloat"></div>
   </div>
+
+  <!-- 标题框（可选） -->
+  <input type="text" id="richtext_window_title">
+
+  <!-- 添加标签  -->
+  <div id="richtext_window_add_knowledge" style="display:none;">
+    <#include file="add_knowledge_input.html"#>
+  </div>
+  
+  <!-- 编辑器主体 -->
+  <div id="ehe">
+
+    <!-- 主菜单 -->
+    <div id="ehe_menu">
+      <input type="button" class="ehe_menu_button" id="bold_button"           clicked="false"  title="加粗">
+      <input type="button" class="ehe_menu_button" id="italic_button"         clicked="false"  title="斜体">
+      <div class="ehe_menu_separator"></div>
+      <input type="button" class="ehe_menu_button" id="link_button"           clicked="false"  title="插入链接">
+      <input type="button" class="ehe_menu_button" id="blockquote_button"     clicked="false"  title="插入引用">
+      <input type="button" class="ehe_menu_button" id="picture_button"        clicked="false"  title="插入图片">
+      <div class="ehe_menu_separator"></div>
+      <input type="button" class="ehe_menu_button" id="ul_button"             clicked="false"  title="插入无序列表">
+      <input type="button" class="ehe_menu_button" id="ol_button"             clicked="false"  title="插入有序列表">
+      <div class="ehe_menu_separator"></div>
+      <input type="button" class="ehe_menu_button" id="math_button"           clicked="false"  title="插入公式">
+      <input type="button" class="ehe_menu_button" id="code_button"           clicked="false"  title="插入代码框">
+      <input type="button" class="ehe_menu_button" id="inner_code_button"     clicked="false"  title="变成行内代码：选中一个单词后点击此按钮">
+      <div class="clearfloat"></div>
+    </div>
+    
+    <!-- 顶部位置标记 -->  
+    <div id="editor_top"></div>
+      
+    <!-- 编辑器主div -->
+    <div id="ehe_main" class="has_placeholder" contentEditable="true" onpaste="ehe_paste($(this))" spellcheck="false"></div>
+
+      
+    <!-- 底部位置标记 -->
+    <div id="editor_bottom"></div>
+  </div>
+
 </div>
 
-<!-- 发布预览阴影 -->
-<div id="preview_mask"></div>
-<div id="preview_wrapper">
-  <div id="preview_title">
-  <#$chapter_basic_info.title#>
-    <input type="button" class="window_title_button_cancel" id="ehe_preview_cancel" value="取消">
-    <input type="button" class="window_title_button"        id="ehe_preview_submit" value="确定发布">
-  </div>
-  <div id="preview_content">
-    <div id="chapter_content"></div>
-  </div>
-</div>
+<div id="ehe_mask"></div>
 
 </body>
 </html>
