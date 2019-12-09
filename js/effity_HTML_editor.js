@@ -14,14 +14,111 @@ var in_code 		= 	null,
 	in_h1			=	null,
 	in_h2			=	null;
 
+// 获得焦点位置
+var getFirstRange = function() {
+    var sel = rangy.getSelection();
+    return sel.rangeCount ? sel.getRangeAt(0) : null;
+}
+
+// 判断浏览器
+var ua = window.navigator.userAgent;
+
+var isFirefox = /Firefox/.test(ua);
+var isChrome = /Chrome/.test(ua) && /Google Inc/.test(navigator.vendor);
+var isIE = /MSIE /.test(ua) || /Trident\//.test(ua);
+var isEdge = /Edge\//.test(ua);
+
+console.log("--- browser detect ---" +
+		"\nisFirefox:\t" 	+ 	isFirefox	+
+		"\nisChrome:\t"  	+ 	isChrome	+
+		"\nisIE:\t\t"      	+ 	isIE		+
+		"\nisEdge:\t\t"   	+ 	isEdge
+);
+
+//渲染显示序号代码
+function shader_show_row_code(obj){
+	obj.find("pre[class!='snc_number'][class!='snc_code'][show_number='true']").each(function(){
+		var template = $($("#snc_template").html());
+		template.find(".snc_code").html($(this).html());
+		
+		$(this).replaceWith(template);
+		
+		var snc_number = template.find(".snc_number");
+		var snc_code = template.find(".snc_code");
+		
+		var number_length = Math.round(snc_code.height() / 22);
+		for(var i = 0; i < number_length; i++)
+		{
+			snc_number.append((i + 1) + "<br>");
+		}
+	});
+}
+
+(function($){
+	$.fn.extend({
+		// 判断含有焦点
+		hasCursor: function(){
+			// 获得光标所在节点
+			var n = document.getSelection().focusNode;
+			if(n == null)
+			{
+				return false;
+			}
+			else
+			{
+				// 遍历其父节点
+				while(n != $("body")[0])
+				{
+					if(n == $(this)[0])
+					{
+						return true;
+					}
+					n = n.parentNode;
+				}
+				return false;
+			}
+		},
+		// 按标签名删除标签
+		deleteTag: function(tag_name){
+			while($(this).find(tag_name).length != 0)
+			{
+				$(this).find(tag_name).each(function(){
+			        var c = $(this).html(); 
+			        $(this).replaceWith(c); 
+			    });
+			}
+		},
+		outerHTML : function() {
+			return $(this).clone().wrap('<div></div>').parent().html();
+		}
+	})
+})(jQuery);
+
+// 判断文字串为空
+function judge_blank(str){
+	var re = /^\s*$/g;
+	return re.test(str);
+}
+
+// 滚动至
+function scroll_to(target){
+	var container = $("body,html");
+	container.animate({scrollTop:target.offset().top - 55}, 500);
+}
+
 $(document).ready(function() {
+	// alert(1)
+	// reset_effity_HTML_editor_height();
+	// ehe_before_processing();
 
-	reset_effity_HTML_editor_height();
-	ehe_before_processing();
+	// // 编辑框大小变换	
+	// $(window).resize(function() {
+	// 	reset_effity_HTML_editor_height();
+	// });
 
-	// 编辑框大小变换	
-	$(window).resize(function() {
-		reset_effity_HTML_editor_height();
+	/* highlight js 设置 */
+	hljs.configure({
+		tabReplace: '\t'
 	});
 
 	// 各部分功能函数
