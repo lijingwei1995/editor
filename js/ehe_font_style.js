@@ -5,6 +5,7 @@
 function effity_editor_font_style(){
 	// 加粗
 	$("#bold_button").click(function(){
+		alert(1)
 		if($(this).attr("clicked") != "unable")
 		{
 			if($("#ehe_main").hasCursor())// 判断具有焦点
