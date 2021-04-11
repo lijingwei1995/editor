@@ -1,0 +1,237 @@
+@charset "utf-8";
+
+html {
+	height:100%;
+}
+
+body {
+	font-family:"等线","Helvetica Neue",Helvetica,Arial,sans-serif;
+	background-color: RGB(150,150,150);
+	margin: 0;
+	padding: 0;
+	color: #000;
+	position:relative;
+	min-height:100%;
+}
+
+ul, ol, dl {
+	padding: 0;
+	margin: 0px 0px 0px 45px;
+}
+h1, h2, h3, h4, h5, h6, p {
+	padding: 0;
+	margin: 0;
+}
+a{
+	font-weight:normal;
+	border: none;
+}
+img {
+	height:auto;
+	max-width:100%;
+	border: none;
+}
+input {
+	padding:0px;
+	margin:0px;
+	border:0px;
+}
+code{
+	font-family:Courier;
+}
+.press {
+	color: BLACK;
+	text-decoration:underline;
+}
+.press:hover {
+	text-decoration:none;
+	cursor:pointer;
+}
+
+.container {/*普通白色框的容器div*/
+	width: 1000px;
+	background-color: #FFFFFF;
+	margin:0 auto; /* 侧边的自动值与宽度结合使用，可以将布局居中对齐 */
+	margin-bottom: 5px;
+	/*border:solid RED 1px;*/
+}
+
+.content {/*容器div内的内容div*/
+	line-height:150%;
+	margin:0px 0px;
+	padding: 10px;
+	/*border:solid RED 1px;*/
+}
+
+
+/*div属性类*/
+.rightfloat {
+	float:right;
+}
+.leftfloat {
+	float:left;
+}
+/*
+	以下两个类规定文字是否可选，这里的用法应为：
+	先设定所有元素及body属性为不可选，
+	再设定内部可选内容
+ */
+ /*
+.forbidselect {
+	-moz-user-select: 	none;
+    -webkit-user-select:none;
+    -ms-user-select: 	none;
+    -khtml-user-select: none;
+    user-select: 		none;
+}
+.canselect {
+	-moz-user-select: 	text;
+    -webkit-user-select:text;
+    -ms-user-select: 	text;
+    -khtml-user-select: text;
+    user-select: 		text;
+}
+*/
+.forbidselect_v2 {
+	-moz-user-select: 	none;
+    -webkit-user-select:none;
+    -ms-user-select: 	none;
+    -khtml-user-select: none;
+    user-select: 		none;
+}
+.canselect_v2 {
+	-moz-user-select: 	text;
+    -webkit-user-select:text;
+    -ms-user-select: 	text;
+    -khtml-user-select: text;
+    user-select: 		text;
+}
+.clearfloat { /* 如果从 #container 中删除或移出了 #footer，则可以将此类放置在 <br /> 或空 div 中，作为 #container 内最后一个浮动 div 之后的最终元素 */
+	clear:both;
+}
+
+form {
+	margin:0;
+	float:none;
+}
+.grey127{
+	color:rgb(127,127,127);
+}
+/* 蓝色按钮 */
+.bluebutton{
+	color:rgb(51,136,255);
+	text-decoration:none;
+	cursor:default;
+}
+.bluebutton:hover{
+	cursor:pointer;
+	color:rgb(132,184,255);
+}
+/* title button */
+.title_button{
+	text-decoration:none;
+	font-size:13px;
+	color:rgb(153,217,234);
+}
+.title_button:hover{
+	cursor:pointer;
+	color:rgb(211,239,255);
+}
+hr{
+	padding:0px;
+	margin:0px;
+	height:1px;
+	background-color:rgb(200,200,200);
+	border:none;
+}
+.cursor_text:hover{
+	cursor:text;
+}
+/* 锚点 */
+.anchor{
+	position:relative;
+	display:block;
+	top:-60px;
+}
+.anchor_1{
+	position:relative;
+	display:block;
+	top:-160px;
+}
+.anchor_2{
+	position:relative;
+	display:block;
+	top:-260px;
+}
+/* 公告 */
+/*
+.notice_type1{
+	width:980px;
+	padding:10px;
+	color:white;
+	background-color:rgb(29,116,137);
+}
+*/
+
+.notice_wrapper{
+	padding:5px;
+}
+.notice_type2{
+	font-size:14px;
+	padding:5px 10px;
+	background-color:rgb(255,249,132);
+	
+	/* 圆角 */
+	-webkit-border-top-left-radius:5px;
+	-moz-border-radius-topleft:5px;
+	border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	-moz-border-radius-topright:5px;
+	border-top-right-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-moz-border-radius-bottomleft:5px;
+	border-bottom-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomright:5px;
+	border-bottom-right-radius:5px;
+}
+/* yuan */
+.yuan{
+	color:rgb(0,130,34);
+}
+/* 新代码框 */
+pre{
+	font-family: Menlo,Monaco,Consolas,"Andale Mono","lucida console","等线","Courier New",monospace;
+	display:block;
+	font-size:13px;
+	line-height:22px;
+	text-align:left;
+	background-color:rgb(240,240,240);
+	padding:5px 5px 5px 30px;
+	margin:5px 0px;
+	border:solid 1px rgb(200,200,200);
+	border-radius:2px;
+	overflow-x:auto;
+	resize:none;
+	outline:none;
+	font-weight:normal;
+}
+
+.lic{
+	font-size:13px;
+	font-family: Menlo,Monaco,Consolas,"Andale Mono","lucida console","等线","Courier New",monospace;
+	padding:1px 5px;
+	margin:0px 2px;
+	border-radius:2px;
+	background-color:rgb(240,240,240);
+	border:solid 1px rgb(200,200,200);
+	font-weight:normal;
+}
+
+blockquote{
+	margin:8px 0px;
+	border-left: 3px solid #D0E5F2;
+	padding:5px 5px 5px 8px;
+	line-height:24px;
+	outline:none;
+}
