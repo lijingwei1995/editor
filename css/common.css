@@ -38,6 +38,11 @@ input {
 }
 code{
 	font-family:Courier;
+	background-color:rgb(240,240,240);
+	padding:1px;
+	margin:0px 2px;
+	border:solid 1px rgb(200,200,200);
+	border-radius:2px;
 }
 .press {
 	color: BLACK;
